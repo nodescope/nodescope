@@ -72,69 +72,39 @@
     <div class="connection-details">
       <h2>Connection Details</h2>
       <!-- Display Generated Connection Details Here -->
-      <p>
-        IP Address: <span>{{ ipAddress }}</span>
-        <button @click="copyToClipboard(ipAddress)">Copy</button>
-      </p>
-      <p>
-        Username: <span>{{ username }}</span>
-        <button @click="copyToClipboard(username)">Copy</button>
-      </p>
+      <h2>Local IP Address</h2>
+      <p>{{ localIp }}</p>
       <!-- Add more connection details as needed -->
     </div>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'TerminalView',
   data() {
     return {
-      // Initialize connection details (replace with generated values)
-      ipAddress: '192.168.1.100',
-      username: 'user'
-      // Add more connection details as needed
+      response: null
     }
   },
-  methods: {
-    copyToClipboard(value) {
-      // Method to copy value to clipboard
-      navigator.clipboard
-        .writeText(value)
-        .then(() => {
-          console.log('Copied to clipboard:', value)
-          // Optionally, provide user feedback on successful copy
-        })
-        .catch((error) => {
-          console.error('Error copying to clipboard:', error)
-          // Optionally, handle error and provide user feedback
-        })
+  async created() {
+    try {
+      const res = await axios.get('http://localhost:3000/api/local-ip')
+      this.response = res.data
+    } catch (error) {
+      console.error('Error fetching data:', error)
     }
   }
 }
 </script>
 
 <style>
-/* Define CSS rules for the Termius image */
+/* CSS rules for the Termius image */
 .termius-image {
-  max-width: 100%; /* Ensure the image fills its container */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Ensure proper spacing */
-  margin: 20px auto; /* Add margin for spacing */
-}
-</style>
-
-<style scoped>
-/* Add CSS styles for the TerminalView component */
-.terminal-view {
-  /* Add styles as needed */
-}
-
-.installation-instructions {
-  /* Add styles for installation instructions section */
-}
-
-.connection-details {
-  /* Add styles for connection details section */
+  max-width: 100%; /* Ensures the image fills its container */
+  height: auto; /* Maintains aspect ratio */
+  display: block; /* Ensures proper spacing */
+  margin: 20px auto; /* Adds margin for spacing */
 }
 </style>
