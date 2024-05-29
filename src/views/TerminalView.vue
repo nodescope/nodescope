@@ -85,15 +85,15 @@ import axios from 'axios'
 export default {
   data() {
     return {
-      response: null
+      localIp: ''
     }
   },
   async created() {
     try {
-      const res = await axios.get('http://localhost:3000/api/local-ip')
-      this.response = res.data
+      const response = await axios.get('http://localhost:3000/api/local-ip')
+      this.localIp = response.data.localIp
     } catch (error) {
-      console.error('Error fetching data:', error)
+      console.error('Error fetching local IP address:', error)
     }
   }
 }
