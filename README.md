@@ -1,35 +1,50 @@
 # nodescope.local
 
-This template should help get you started developing with Vue 3 in Vite.
+## Project: Bitcoin Full Node Management App
 
-## Recommended IDE Setup
+### Objective
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Develop a web-based application to manage a Bitcoin full node, accessible via https://nodescope.local. The app will guide users through setup steps, including SSH setup, Bitcoin Core and Core Lightning configuration, and connecting their node to a remote node to spend Bitcoin over Lightning from anywhere.
 
-## Customize configuration
+### Environment
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+* Backend: Node.js with Express
+* Frontend: Vue.js with Vite
+* Deployment: Debian 12 on a headless single-board computer (SBC)
 
-## Project Setup
+### Project Structure
 
-```sh
-npm install
+```lua
+nodescope.local/
+├── .vscode/
+├── public/
+├── src/
+│   ├── components/
+│   │   └── Home.vue
+│   ├── views/
+│   │   └── TerminalView.vue
+├── node_modules/
+├── server/
+│   ├── server.js
+│   └── depricated_getIPAddress.js
+├── index.html
+├── jsconfig.json
+├── .gitignore
+├── .eslintrc.cjs
+├── .prettierrc.json
+├── README.md
+├── package-lock.json
+├── package.json
+├── vite.config.js
+├── ecosystem.config.js
 ```
 
-### Compile and Hot-Reload for Development
+### Concurrently Running Backend and Frontend
 
 ```sh
-npm run dev
+npm run start-dev
 ```
 
-### Compile and Minify for Production
+### Observations and Fixes
 
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+_Error Handling: Sentry and external resource errors are not critical for functionality and can be ignored if not using those services._
