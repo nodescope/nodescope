@@ -15,28 +15,52 @@ Develop a web-based application to manage a Bitcoin full node, accessible via ht
 ### Project Structure
 
 ```lua
-nodescope.local/
-├── .vscode/
-├── public/
-├── src/
-│   ├── components/
-│   │   └── Home.vue
-│   ├── views/
-│   │   └── TerminalView.vue
-├── node_modules/
-├── server/
-│   ├── server.js
-│   └── depricated_getIPAddress.js
+.
+├── ecosystem.config.js
 ├── index.html
 ├── jsconfig.json
-├── .gitignore
-├── .eslintrc.cjs
-├── .prettierrc.json
-├── README.md
-├── package-lock.json
 ├── package.json
-├── vite.config.js
-├── ecosystem.config.js
+├── package-lock.json
+├── public
+│   ├── favicon.ico
+│   ├── logo_cold.png
+│   ├── logo_dark.png
+│   └── logo_light.png
+├── README.md
+├── server
+│   ├── depricated_getIPAddress.js
+│   └── server.js
+├── src
+│   ├── App.vue
+│   ├── assets
+│   │   ├── base.css
+│   │   ├── logo_dark.png
+│   │   ├── main.css
+│   │   ├── termius.png
+│   │   └── Vue_logo.svg
+│   ├── components
+│   │   ├── HelloWorld.vue
+│   │   ├── icons
+│   │   │   ├── IconCommunity.vue
+│   │   │   ├── IconDocumentation.vue
+│   │   │   ├── IconEcosystem.vue
+│   │   │   ├── IconSupport.vue
+│   │   │   ├── IconTooling.vue
+│   │   │   └── IconWallet.vue
+│   │   ├── TheWelcome.vue
+│   │   └── WelcomeItem.vue
+│   ├── main.js
+│   ├── router
+│   │   └── index.js
+│   └── views
+│       ├── AboutView.vue
+│       ├── ConnectWalletView.vue
+│       ├── DocumentationView.vue
+│       ├── HomeView.vue
+│       ├── NodeManagementView.vue
+│       └── TerminalView.vue
+├── true
+└── vite.config.js
 ```
 
 ### Concurrently Running Backend and Frontend
